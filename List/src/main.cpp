@@ -17,7 +17,7 @@ int main() {
     cout << res;
     return 0;
 }
-
+//82 删除排序链表中的重复元素
 int main() {
     vector<int>ve = { 1,1,1,2,3 };
     int k = 2;
