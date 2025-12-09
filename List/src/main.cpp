@@ -26,7 +26,7 @@ int main() {
     cout << res;
     return 0;
 }
-
+//86 分隔链表
 int main() {
     vector<int>ve = { 1,4,3,0,2,5,2 };
     int k = 3;
