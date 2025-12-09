@@ -1,2 +1,8 @@
 # Leet_code
-Leet_code
+
+我的 LeetCode 算法刷题记录--C++
+
+目前覆盖的题型：
+- 链表
+- 动态规划
+    
