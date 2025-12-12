@@ -26,3 +26,17 @@ ostream& operator << (ostream& os, const vector<T>& num) {
     os << ']';
     return os;
 }
+
+// cout<< nums
+template <typename T>
+ostream& operator<<(ostream& os, const vector<T>& nums) {
+    os << '[';
+    auto itm = nums.begin();
+    while (nums.end() != itm) {
+        os << *itm;
+        if (itm != prev(nums.end())) os << ',';
+        itm++;
+    }
+    os << ']';
+    return os;
+}

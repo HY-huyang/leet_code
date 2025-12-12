@@ -53,3 +53,11 @@ int main() {
     cout << res;
     return 0;
 }
+
+//0237 删除链表中的节点
+int main() {
+    vector<int>ve = { 1,2,3,4,5 };
+    ListNode* ls = to_list(ve);
+    Solution().deleteNode(ls);
+    return 0;
+}
