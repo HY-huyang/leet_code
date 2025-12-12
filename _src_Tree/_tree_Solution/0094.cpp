@@ -1,41 +1,38 @@
-struct TreeNode {
-    int val;
-    TreeNode* left;
-    TreeNode* right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
+class Solution {
+public:
+    vector<int> LNR(TreeNode* root, vector<int>& ans) {
+        if (!root)return ans;
+        LNR(root->left, ans);
+        ans.push_back(root->val);
+        LNR(root->right, ans);
+        return ans;
+    }
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int>res;
+        if (!root)return res;
+        LNR(root, res);
+        return res;
+    }
 };
 
-TreeNode* to_tree(const vector<optional<int>>& v) {
-    int n = v.size();
-    if (n == 0) {
-        return nullptr;
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int>res;
+        stack<TreeNode*>st;
+        TreeNode* cur = root;
+        while (cur || !st.empty()) {
+            if (cur) {
+                st.push(cur);
+                cur = cur->left;
+            }
+            else {
+                cur = st.top();
+                st.pop();
+                res.push_back(cur->val);
+                cur = cur->right;
+            }
+        }
+        return res;
     }
-    TreeNode* root = new TreeNode(v[0].value());
-    deque<TreeNode*> dq = { root };
-    int i = 1;
-    while (!dq.empty()) {
-        TreeNode* parent = dq.front();
-        dq.pop_front();
-        if (i >= n) {
-            break;
-        }
-        const optional<int>& lc_x = v[i++];
-        if (lc_x.has_value()) {
-            TreeNode* lc = new TreeNode(lc_x.value());
-            dq.push_back(lc);
-            parent->left = lc;
-        }
-        if (i >= n) {
-            break;
-        }
-        const optional<int>& rc_x = v[i++];
-        if (rc_x.has_value()) {
-            TreeNode* rc = new TreeNode(rc_x.value());
-            dq.push_back(rc);
-            parent->right = rc;
-        }
-    }
-    return root;
-}
+};
