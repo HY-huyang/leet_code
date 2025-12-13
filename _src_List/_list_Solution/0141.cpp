@@ -1,4 +1,4 @@
-// ˫ָ��
+// 双指针
 class Solution {
 public:
     bool hasCycle(ListNode* head) {
