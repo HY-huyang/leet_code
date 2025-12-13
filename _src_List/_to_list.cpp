@@ -7,7 +7,7 @@ struct ListNode {
 };
 
 ListNode* to_list(const vector<int>num) {
-    int len = num.size();
+    int len = static_cast<int>(num.size());
     if (len == 0)return NULL;
     ListNode* head = new ListNode(num[0]);
     ListNode* now = head;
