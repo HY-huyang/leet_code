@@ -62,11 +62,20 @@ int main() {
     return 0;
 }
 
-//0141 环形链表
+// 0141 环形链表
 int main() {
     vector<int>ve = { 3,2,0,-4 };
     int pos = 1;
     ListNode* ls = to_list(ve, pos);
     Solution().hasCycle(ls);
+    return 0;
+}
+
+// 0142
+int main() {
+    vector<int>ve = { 3,2,0,-4 };
+    int pos = 1;
+    ListNode* ls = to_list(ve, pos);
+    Solution().detectCycle(ls);
     return 0;
 }
